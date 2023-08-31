@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <title>Number guessing game</title>
+  </head>
+  <body>
+<script>
+     // Defining both Scores
+   var userScore=0;
+   var computerScore=0;
+
+     // Loop while score is smaller than 5
+   while (userScore<5 && computerScore<5){
+     // Asking user for a choice
+   var userChoice= prompt("Enter: PAPER,SCISSORS or ROCK");
+     // Making User Choice case insensitive
+   var userChoice= userChoice.toUpperCase();
+     // Checking user choice 
+   while (userChoice!="PAPER" && userChoice!="SCISSORS" && userChoice!="ROCK"){
+    console.log("Enter a correct answer!");
+    userChoice= prompt("Enter: PAPER,SCISSORS or ROCK");
+    userChoice=userChoice.toUpperCase();
+    
+   }
+     //setting computer choice as a random number and then "translate" it to a choice
+   var getComputerChoice=(Math.floor(Math.random()*3)+1);
+      let x;
+      if (getComputerChoice==1){
+        x="PAPER";
+      }
+       else if (getComputerChoice==2){
+        x="SCISSORS";
+      }
+        else if (getComputerChoice==3){
+        x="ROCK";
+      }
+      
+    if (userChoice==x){
+      console.log("****Its a Draw****");
+    }  
+    else if (userChoice=="PAPER" && x=="SCISSORS"){
+      console.log("****New round winner: Computer****");
+      computerScore++;
+    }
+    else if  (userChoice=="SCISSORS" && x=="ROCK"){
+      console.log("****New round winner: Computer****");
+      computerScore++;
+    }
+    else if (userChoice=="ROCK" && x=="PAPER"){
+       console.log("****New round winner: Computer****");
+       computerScore++;
+    }
+    else {
+      console.log("****New round winner: User!****");
+      userScore++;
+    }
+     // Showing what the user used and what the computer used
+    console.log("You used: ",userChoice," and Computer used: ",x);
+     // Showing the score 
+    console.log("User score = ",userScore," and Computer score = ",computerScore);
+  }
+     // Checking if the score is up to 5
+  if (userScore==5){
+    console.log("User Won the game!");
+  }
+  else if (computerScore==5) {
+    console.log("Computer Won the game!");
+  }
+</script>
+</html>
